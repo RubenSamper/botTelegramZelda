@@ -10,10 +10,10 @@ async function checkAndNotify() {
   try {
     const current = await scrapeProduct();
 
-    const hasChanged = true; //previousState !== null && (
-      //previousState.price !== current.price ||
-     // previousState.button !== current.button
-    //);
+    const hasChanged = previousState !== null && (
+      previousState.price !== current.price ||
+      previousState.button !== current.button
+    );
 
     if (hasChanged) {
       if (spamTimeoutId) clearTimeout(spamTimeoutId);
